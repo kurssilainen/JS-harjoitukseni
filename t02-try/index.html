@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nyt koodataan!</title>
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
+
+    <style>
+        * {
+            font-family: 'Raleway', sans-serif;
+            font-weight: 300;
+        }
+        body {
+            text-align:center;        
+    }
+
+        #laatikko {
+            border-style: dashed;
+            border-radius: 20px;
+            border-color: #444444;
+            border-width: 2px;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            width: 100px;
+            height: 100px;
+        }
+        #toinen_laatikko {
+            border-style: dashed;
+            border-radius: 20px;
+            border-color: #444444;
+            border-width: 2px;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            width: 100px;
+            height: 100px;
+        }
+
+        #kolmas_laatikko {
+            border-style: dashed;
+            border-radius: 20px;
+            border-color: #444444;
+            border-width: 2px;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+
+            width: 100px;
+            height: 100px;
+            visibility: hidden;           
+        }
+
+
+        .Valkoinen {
+            background-color: white;
+        }
+        .Keltainen {
+            background-color: yellow;
+        }
+        .Punainen {
+            background-color: red;
+        }
+        .Vihrea{
+            background-color: green;
+        }
+
+       .Kapea{
+            width: 50px !important;
+        }
+
+       .Levea{
+            width: 150px !important;
+        }
+
+       .Piilossa {visibility: hidden !important;}
+       .Nakyvissa {visibility: visible !important;}
+
+
+
+        button {
+            background-color: lightgray;
+            border-style: solid;
+            border-radius: 4px;
+            border-color: #444444;
+            border-width: 1px;
+            padding: 5px;
+        }
+    </style>
+
+    <script>
+        var edellinen = "";
+
+        function tupla(nykyinen)
+        {
+        	if (nykyinen === edellinen)
+        	{
+        		laatikko.className = "Valkoinen";
+        	}
+
+      		edellinen = nykyinen;
+        }
+
+        function keltaiseksi() {
+            var laatikko = document.getElementById("laatikko");
+            laatikko.className = "Keltainen";
+
+            tupla(laatikko.className);
+        }
+        function tomaatiksi() {
+            var laatikko = document.getElementById("laatikko");
+            laatikko.className = "Punainen";
+
+            tupla(laatikko.className);
+        }
+        function kurkuksi() {
+            var laatikko = document.getElementById("laatikko");
+            laatikko.className = "Vihrea";
+
+            tupla(laatikko.className);
+        }
+
+        function kapeaksi() {
+            var laatikko = document.getElementById("toinen_laatikko");
+            laatikko.className = "Kapea";
+
+            tupla(laatikko.className);
+        }
+        function leveaksi() {
+            var laatikko = document.getElementById("toinen_laatikko");
+            laatikko.className = "Levea";
+
+            tupla(laatikko.className);
+        }
+
+        function piilotaLaatikko() {
+        	var laatikko = document.getElementById("kolmas_laatikko");
+            laatikko.className = "Piilossa";
+        }
+
+        function naytaLaatikko() {
+        	var laatikko = document.getElementById("kolmas_laatikko");
+            laatikko.className = "Nakyvissa";
+        }
+
+    </script>
+</head>
+
+
+<body>
+<h1>Nyt koodataan!</h1>
+
+<div id="laatikko"></div>
+<button type="button" onclick="keltaiseksi()">Keltaiseksi</button>
+<button type="button" onclick="tomaatiksi()">Tomaatti</button>
+<button type="button" onclick="kurkuksi()">Kurkku</button>
+
+<div id="toinen_laatikko"></div>
+<button type="button" onclick="kapeaksi()">Kapeaksi</button>
+<button type="button" onclick="leveaksi()">Leve&auml;ksi</button>
+
+<div id="kolmas_laatikko" onmouseover="naytaLaatikko()"  onmouseout="piilotaLaatikko()">T&auml;m&auml; on piiloteksti</div>
+
+
+</body>
+</html>
