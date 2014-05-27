@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <title>Karin s&auml;&auml;palvelut</title>
+
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  
+    <script>
+
+    // #käynnistä palvelin (sulkeutuu komennolla ctrl-c)
+    // cd ~/git/JS-koulutus/teht/t06-ajax-material
+
+    // cd ~/git/JS-harjoitukseni/t06-ajax
+    // python -m SimpleHTTPServer
+
+    // #käynnistä selain - oma terminal window
+    // chromium-browser http://localhost:8000/index.html &> /dev/null &
+    // subl ~/git/JS-harjoitukseni/t06-ajax/index.html &> /dev/null &
+
+
+
+
+        //dokumentin latautuessa aktivoidaan tapahtumankuuntelijat
+        $(document).ready(function(){
+
+            $("#tyhjennysnappi").click(function() {
+                $("#lista").empty();
+            });
+
+
+            $("#latausnappi").click(function() {
+
+                //ladataan JSON-dataa palvelimelta
+                $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=Helsinki", function(data)
+                    {
+                        console.log(data);
+
+                            var saainfo = $("<section class='Olio'/>").appendTo("#lista");
+                           
+                            $("<h2/>").text(data.name +": " + (Math.round(data.main.temp - 273.15)) + "C").appendTo(saainfo); 
+ 
+
+                    })
+                .error(function() 
+                    { 
+                        //palvelinyhteys aiheutti virheen
+                        $("<p class='Error'>Virhe: Palvelin ei palauta JSON-dataa.</p>").appendTo("#lista");
+                    });
+
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+    <h1>Helsingin s&auml;&auml;</h1>
+
+    <p>
+        <button id="latausnappi">Update</button> 
+        <button id="tyhjennysnappi">Clear</button>
+    
+
+    <div id="lista"></div>
+
+</body>
+</html>
