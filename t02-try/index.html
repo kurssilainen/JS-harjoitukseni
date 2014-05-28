@@ -55,7 +55,7 @@
 
             width: 100px;
             height: 100px;
-            // visibility: hidden;           
+            opacity: 0;           
         }
 
 
@@ -80,8 +80,8 @@
             width: 150px !important;
         }
 
-       .Piilossa {visibility: hidden !important;}
-       .Nakyvissa {visibility: visible !important;}
+       .Piilossa  {opacity: 0 !important;}
+       .Nakyvissa {opacity: 1 !important;}
 
 
 
@@ -145,7 +145,7 @@
             laatikko.className = "Piilossa";
         }
 
-        function naytaLaatikko(event) {
+        function naytaLaatikko() {
            	var laatikko = document.getElementById("kolmas_laatikko");
             laatikko.className = "Nakyvissa";
         }
