@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Nyt koodataan!</title>
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,200' rel='stylesheet' type='text/css'>
@@ -9,9 +10,10 @@
             font-family: 'Raleway', sans-serif;
             font-weight: 300;
         }
+
         body {
-            text-align:center;        
-    }
+            text-align: center;
+        }
 
         #laatikko {
             border-style: dashed;
@@ -27,6 +29,7 @@
             width: 100px;
             height: 100px;
         }
+
         #toinen_laatikko {
             border-style: dashed;
             border-radius: 20px;
@@ -55,33 +58,41 @@
 
             width: 100px;
             height: 100px;
-            opacity: 0;           
+            opacity: 0;
         }
 
 
         .Valkoinen {
             background-color: white;
         }
+
         .Keltainen {
             background-color: yellow;
         }
+
         .Punainen {
             background-color: red;
         }
-        .Vihrea{
+
+        .Vihrea {
             background-color: green;
         }
 
-       .Kapea{
+        .Kapea {
             width: 50px !important;
         }
 
-       .Levea{
+        .Levea {
             width: 150px !important;
         }
 
-       .Piilossa  {opacity: 0 !important;}
-       .Nakyvissa {opacity: 1 !important;}
+        .Piilossa {
+            opacity: 0 !important;
+        }
+
+        .Nakyvissa {
+            opacity: 1 !important;
+        }
 
 
 
@@ -98,14 +109,12 @@
     <script>
         var edellinen = "";
 
-        function tupla(nykyinen)
-        {
-        	if (nykyinen === edellinen)
-        	{
-        		laatikko.className = "Valkoinen";
-        	}
+        function tupla(nykyinen) {
+            if (nykyinen === edellinen) {
+                laatikko.className = "Valkoinen";
+            }
 
-      		edellinen = nykyinen;
+            edellinen = nykyinen;
         }
 
         function keltaiseksi() {
@@ -114,12 +123,14 @@
 
             tupla(laatikko.className);
         }
+
         function tomaatiksi() {
             var laatikko = document.getElementById("laatikko");
             laatikko.className = "Punainen";
 
             tupla(laatikko.className);
         }
+
         function kurkuksi() {
             var laatikko = document.getElementById("laatikko");
             laatikko.className = "Vihrea";
@@ -133,6 +144,7 @@
 
             tupla(laatikko.className);
         }
+
         function leveaksi() {
             var laatikko = document.getElementById("toinen_laatikko");
             laatikko.className = "Levea";
@@ -141,33 +153,34 @@
         }
 
         function piilotaLaatikko() {
-        	var laatikko = document.getElementById("kolmas_laatikko");
+            var laatikko = document.getElementById("kolmas_laatikko");
             laatikko.className = "Piilossa";
         }
 
         function naytaLaatikko() {
-           	var laatikko = document.getElementById("kolmas_laatikko");
+            var laatikko = document.getElementById("kolmas_laatikko");
             laatikko.className = "Nakyvissa";
         }
-
     </script>
 </head>
 
 
 <body>
-<h1>Nyt koodataan!</h1>
+    <h1>Nyt koodataan! Nymme skodataan!</h1>
 
-<div id="laatikko"></div>
-<button type="button" onclick="keltaiseksi()">Keltaiseksi</button>
-<button type="button" onclick="tomaatiksi()">Tomaatti</button>
-<button type="button" onclick="kurkuksi()">Kurkku</button>
+    <div id="laatikko"></div>
+    <button type="button" onclick="keltaiseksi()">Keltaiseksi</button>
+    <button type="button" onclick="tomaatiksi()">Tomaatti</button>
+    <button type="button" onclick="kurkuksi()">Kurkku</button>
 
-<div id="toinen_laatikko"></div>
-<button type="button" onclick="kapeaksi()">Kapeaksi</button>
-<button type="button" onclick="leveaksi()">Leve&auml;ksi</button>
+    <div id="toinen_laatikko"></div>
+    <button type="button" onclick="kapeaksi()">Kapeaksi</button>
+    <button type="button" onclick="leveaksi()">Leve&auml;ksi</button>
 
-<div id="kolmas_laatikko" onmouseover="naytaLaatikko()" onmouseout="piilotaLaatikko()">T&auml;m&auml; on piiloteksti</div>
+    <div id="kolmas_laatikko" onmouseover="naytaLaatikko()" onmouseout="piilotaLaatikko()">T&auml;m&auml; on piiloteksti
+    </div>
 
 
 </body>
+
 </html>
